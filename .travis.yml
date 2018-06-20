@@ -1,0 +1,10 @@
+language: java
+jdk:
+  - oraclejdk8
+sudo: required
+cache:
+  directories:
+    - $HOME/.m2
+install: true
+before_script: chmod +x mvnw
+script: ./mvnw clean package -Dmaven.test.skip=true
