@@ -5,6 +5,7 @@ import me.ykon.kubeopetest.entity.User
 import me.ykon.kubeopetest.repository.UserRepository
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.ResponseBody
 
 @Slf4j
@@ -18,6 +19,17 @@ class UserController(private val userRepository: UserRepository){
         val userList = userRepository.findAll()
         return userList
 
+    }
+
+    @GetMapping("addUser")
+    @ResponseBody
+    fun addUser(@RequestParam("id") id:Int, @RequestParam("name")name:String):String{
+
+        val entry = User(id, name)
+
+        val count = userRepository.addUser(entry)
+
+        return "add user ," + count.toString()
     }
 
 }
