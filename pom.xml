@@ -118,6 +118,13 @@
 					</dependency>
 				</dependencies>
 			</plugin>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<forkCount>4</forkCount>
+					<reuseForks>true</reuseForks>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 
